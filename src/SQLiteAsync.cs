@@ -50,38 +50,38 @@ namespace SQLite
 			return CreateTablesAsync (typeof (T));
 		}
 
-		public Task<CreateTablesResult> CreateTablesAsync<T, T2> ()
-			where T : new ()
+		public Task<CreateTablesResult> CreateTablesAsync<T1, T2> ()
+			where T1 : new ()
 			where T2 : new ()
 		{
-			return CreateTablesAsync (typeof (T), typeof (T2));
+			return CreateTablesAsync (typeof (T1), typeof (T2));
 		}
 
-		public Task<CreateTablesResult> CreateTablesAsync<T, T2, T3> ()
-			where T : new ()
+		public Task<CreateTablesResult> CreateTablesAsync<T1, T2, T3> ()
+			where T1 : new ()
 			where T2 : new ()
 			where T3 : new ()
 		{
-			return CreateTablesAsync (typeof (T), typeof (T2), typeof (T3));
+			return CreateTablesAsync (typeof (T1), typeof (T2), typeof (T3));
 		}
 
-		public Task<CreateTablesResult> CreateTablesAsync<T, T2, T3, T4> ()
-			where T : new ()
+		public Task<CreateTablesResult> CreateTablesAsync<T1, T2, T3, T4> ()
+			where T1 : new ()
 			where T2 : new ()
 			where T3 : new ()
 			where T4 : new ()
 		{
-			return CreateTablesAsync (typeof (T), typeof (T2), typeof (T3), typeof (T4));
+			return CreateTablesAsync (typeof (T1), typeof (T2), typeof (T3), typeof (T4));
 		}
 
-		public Task<CreateTablesResult> CreateTablesAsync<T, T2, T3, T4, T5> ()
-			where T : new ()
+		public Task<CreateTablesResult> CreateTablesAsync<T1, T2, T3, T4, T5> ()
+			where T1 : new ()
 			where T2 : new ()
 			where T3 : new ()
 			where T4 : new ()
 			where T5 : new ()
 		{
-			return CreateTablesAsync (typeof (T), typeof (T2), typeof (T3), typeof (T4), typeof (T5));
+			return CreateTablesAsync (typeof (T1), typeof (T2), typeof (T3), typeof (T4), typeof (T5));
 		}
 
 		public Task<CreateTablesResult> CreateTablesAsync (params Type[] types)

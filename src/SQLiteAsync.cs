@@ -249,16 +249,28 @@ namespace SQLite
             });
         }
 
-		public AsyncTableQuery<T> Table<T> ()
-			where T : new ()
-		{
-			//
-			// This isn't async as the underlying connection doesn't go out to the database
-			// until the query is performed. The Async methods are on the query iteself.
-			//
-			var conn = GetConnection ();
-			return new AsyncTableQuery<T> (conn.Table<T> ());
-		}
+        public AsyncTableQuery<T> AsyncTable<T>()
+            where T : new()
+        {
+            //
+            // This isn't async as the underlying connection doesn't go out to the database
+            // until the query is performed. The Async methods are on the query iteself.
+            //
+            var conn = GetConnection();
+            return new AsyncTableQuery<T>(conn.Table<T>());
+        }
+
+        /// <summary>
+        /// Returns TableQuery<T> which supports non async operations but most linq functionality
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public TableQuery<T> Table<T>()
+            where T : new()
+        {
+            var conn = GetConnection();
+            return conn.Table<T>();
+        }
 
 		public Task<T> ExecuteScalarAsync<T> (string sql, params object[] args)
 		{
